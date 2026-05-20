@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Générateur de Lien WhatsApp</title>
+    <!-- Chargement de Tailwind CSS via CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-100 flex items-center justify-center min-h-screen">
+
+    <div class="bg-white p-8 rounded-lg shadow-md w-full max-w-md">
+        <h1 class="text-2xl font-bold text-center text-green-500 mb-6">Générateur WhatsApp</h1>
+
+        <!-- Champ pour le numéro de téléphone -->
+        <div class="mb-4">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="phone">
+                Numéro (ex: 33612345678)
+            </label>
+            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:border-green-500" id="phone" type="number" placeholder="33612345678">
+        </div>
+
+        <!-- Champ pour le message -->
+        <div class="mb-6">
+            <label class="block text-gray-700 text-sm font-bold mb-2" for="message">
+                Message pré-rempli (facultatif)
+            </label>
+            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:border-green-500" id="message" rows="3" placeholder="Bonjour, je voudrais un devis..."></textarea>
+        </div>
+
+        <!-- Bouton d'action -->
+        <button id="generateBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full mb-4">
+            Générer mon lien
+        </button>
+
+        <!-- Zone de résultat (Cachée par défaut) -->
+        <div id="resultArea" class="hidden border-t pt-4 mt-2">
+            <p class="text-sm text-gray-600 mb-2">Voici votre lien :</p>
+            <input id="resultLink" type="text" readonly class="w-full bg-gray-100 border rounded py-2 px-3 text-sm text-gray-800 mb-3 outline-none">
+            <button id="copyBtn" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded w-full text-sm">
+                Copier le lien
+            </button>
+        </div>
+    </div>
+
+    <!-- Connexion du script -->
+    <script src="script.js"></script>
+</body>
+</html>
