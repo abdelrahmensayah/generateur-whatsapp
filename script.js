@@ -5,21 +5,53 @@ const resultArea = document.getElementById('resultArea');
 const resultLink = document.getElementById('resultLink');
 const copyBtn = document.getElementById('copyBtn');
 
+const creditCountSpan = document.getElementById('creditCount');
+const stripeBtn = document.getElementById('stripeBtn');
+
+// --- LOGIQUE DES CRÉDITS ---
+let credits = localStorage.getItem('walink_credits');
+if (credits === null) {
+    credits = 50;
+    localStorage.setItem('walink_credits', 50);
+} else {
+    credits = parseInt(credits);
+}
+
+function updateCreditUI() {
+    if (!creditCountSpan) return;
+    creditCountSpan.textContent = credits;
+    
+    if (credits <= 0) {
+        generateBtn.classList.add('hidden');
+        stripeBtn.classList.remove('hidden');
+    } else {
+        generateBtn.classList.remove('hidden');
+        stripeBtn.classList.add('hidden');
+    }
+}
+
+updateCreditUI();
+// ---------------------------
+
 generateBtn.addEventListener('click', function() {
     let phone = phoneInput.value.trim();
     let message = messageInput.value.trim();
 
+    // S'il n'y a pas de numéro, on bloque et on ne décrémente pas
     if (phone === '') {
         alert("Il faut au moins taper un numéro de téléphone !");
         return;
     }
 
-    // Nettoyage : on ne garde que les chiffres
+    // On retire un crédit uniquement si la génération passe
+    credits--;
+    localStorage.setItem('walink_credits', credits);
+    updateCreditUI();
+
     phone = phone.replace(/[^0-9]/g, '');
 
-    // Correction automatique : si l'utilisateur a laissé le 0 après le 33 (ex: 3306...)
     if (phone.startsWith('330')) {
-        phone = '33' + phone.substring(3); // On recolle le 33 avec le reste du numéro sans le 0
+        phone = '33' + phone.substring(3);
     }
 
     let finalUrl = `https://wa.me/${phone}`;
