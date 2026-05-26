@@ -13,16 +13,16 @@
 
         <div class="mb-4">
             <label class="block text-gray-300 text-sm font-bold mb-2" for="phone">Numéro (ex: 33612345678)</label>
-            <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:border-green-500" id="phone" type="number" placeholder="33612345678">
+            <input class="bg-slate-700 border-slate-600 text-white placeholder-gray-400 shadow appearance-none border rounded w-full py-2 px-3 focus:outline-none focus:border-green-500" id="phone" type="number" placeholder="33612345678">
         </div>
 
         <div class="mb-6">
             <label class="block text-gray-300 text-sm font-bold mb-2" for="message">Message pré-rempli (facultatif)</label>
-            <textarea class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 focus:outline-none focus:border-green-500" id="message" rows="3" placeholder="Bonjour, je voudrais un devis..."></textarea>
+            <textarea class="bg-slate-700 border-slate-600 text-white placeholder-gray-400 shadow appearance-none border rounded w-full py-2 px-3 focus:outline-none focus:border-green-500" id="message" rows="3" placeholder="Bonjour, je voudrais un devis..."></textarea>
         </div>
 
-        <div class="text-center text-sm font-semibold text-gray-600 mb-4">
-            Crédits restants : <span id="creditCount" class="text-blue-600">50</span>
+        <div class="text-center text-sm font-semibold text-gray-400 mb-4">
+            Crédits restants : <span id="creditCount" class="text-blue-400">50</span>
         </div>
 
         <button id="generateBtn" class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded w-full mb-4">
@@ -33,10 +33,10 @@
             Recharger 50 crédits (Stripe)
         </a>
 
-        <div id="resultArea" class="hidden border-t pt-4 mt-2">
+        <div id="resultArea" class="hidden border-t border-slate-600 pt-4 mt-2">
             <p class="text-sm text-gray-300 mb-2">Voici votre lien :</p>
-            <input id="resultLink" type="text" readonly class="w-full bg-gray-100 border rounded py-2 px-3 text-sm text-gray-800 mb-3 outline-none">
-            <button id="copyBtn" class="bg-gray-800 hover:bg-gray-900 text-white font-bold py-2 px-4 rounded w-full text-sm">
+            <input id="resultLink" type="text" readonly class="w-full bg-slate-800 border border-slate-600 rounded py-2 px-3 text-sm text-gray-300 mb-3 outline-none">
+            <button id="copyBtn" class="bg-gray-700 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded w-full text-sm transition-colors">
                 Copier le lien
             </button>
         </div>
